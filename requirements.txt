@@ -1,0 +1,10 @@
+requests
+mutagen
+textblob
+pydub
+speechrecognition
+langchain_google_genai
+setuptools
+transformers
+python-dotenv
+torch
