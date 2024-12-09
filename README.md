@@ -1,14 +1,25 @@
-## 📋 Chuẩn bị thư viện và biến môi trường
-Chạy câu lệnh dưới đây để tải các thư viện cần thiết:
+## 📋 Chuẩn bị thư viện, biến môi trường và model phân tích cảm xúc
+### 1. Chạy câu lệnh dưới đây để tải các thư viện cần thiết
 ```bash
 pip install -r requirements.txt
 ```
-Chuẩn bị file .env có dạng dưới đây để thiết lập các biến môi trường được sử dụng:
+### 2. Chuẩn bị file .env có dạng dưới đây để thiết lập các biến môi trường được sử dụng
 ```bash
 api_key="your-gemini-api-key"
 hubspot_token="access-token-your-hubspot"
 ```
-**Lưu ý:** Nếu đã chuẩn bị thư viện và biến môi trường nhưng chạy gặp lỗi liên quan ffmpeg (ffmpeg dùng để xử lý các tệp âm thanh và video) thì tải chocolatey (https://chocolatey.org/install) về máy và chạy câu lệnh `choco install ffmpeg` trong CMD hoặc Terminal. 
+### 3. Tải model phân tích cảm xúc
+```bash
+# Make sure you have git-lfs installed (https://git-lfs.com)
+git lfs install
+```
+Clone model về thư mục dự án này:
+```bash
+git clone https://huggingface.co/5CD-AI/Vietnamese-Sentiment-visobert
+```
+**Lưu ý:** Khi clone model về thì thư mục chứa model sẽ là **Vietnamese-Sentiment-visobert** và phải cùng cấp với thư mục **hubspot**  
+
+Nếu đã chuẩn bị thư viện và biến môi trường nhưng chạy gặp lỗi liên quan ffmpeg (ffmpeg dùng để xử lý các tệp âm thanh và video) thì tải chocolatey (https://chocolatey.org/install) về máy và chạy câu lệnh `choco install ffmpeg` trong CMD hoặc Terminal. 
 
 ## 🛠️ Thiết lập theo dõi các deal trong một stage của một pipeline cụ thể
 Trong file **hubspot/polling.py**, có thiết lập chọn theo dõi các deal trong stage "Chốt giao dịch" của pipeline "Chốt deal" bằng cách dùng ID của stage và pipeline:
