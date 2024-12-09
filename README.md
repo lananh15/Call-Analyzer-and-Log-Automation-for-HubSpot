@@ -87,7 +87,7 @@ Sử dụng thư viện SpeechRecognition cho phép tích hợp dễ dàng với
 
 **Bước 4:** Tiếp tục dùng API của Gemini, dựa trên nội dung hội thoại, trả về mức độ quan tâm, các yếu tố ảnh hưởng đến quyết định mua hàng và khả năng khách hàng sẽ mua sản phẩm.
 
-**Bước 4:** Cuối cùng, tạo một bản tóm tắt nội dung chính, đánh giá tổng quan về cảm xúc, các việc cần thực hiện và khả năng mua hàng của khách hàng.
+**Bước 5:** Cuối cùng, tạo một bản tóm tắt nội dung chính, đánh giá tổng quan về cảm xúc, các việc cần thực hiện và khả năng mua hàng của khách hàng.
 
 ### 5. Ghi log thông tin vào HubSpot
 Cập nhật mô tả (description) của cuộc gọi (với call_id đã được lấy ở trên) với nội dung tóm tắt vừa được phân tích.
@@ -98,4 +98,4 @@ Lấy danh sách các giao dịch và cuộc gọi mới chưa được xử lý
 ### 7. Dọn dẹp dữ liệu tạm thời
 Sau khi hoàn tất xử lý, xóa các file tạm (như file âm thanh đã tải xuống) để giải phóng tài nguyên và tối ưu hóa hiệu suất.
 
-Polling sẽ kiểm tra theo dõi liên tục (cách 2 phút mỗi lần) các deal trên stage của pipeline đã được thiết lập trong code để theo dõi, quá trình sẽ kết thúc khi kết thúc chạy code.
+### 🤖 Polling sẽ kiểm tra theo dõi liên tục (cách 2 phút mỗi lần) các deal trên stage của pipeline đã được thiết lập trong code để theo dõi, quá trình sẽ kết thúc khi kết thúc chạy code.
