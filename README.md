@@ -1,4 +1,4 @@
-## Chuẩn bị thư viện và biến môi trường
+## 📋 Chuẩn bị thư viện và biến môi trường
 Chạy câu lệnh dưới đây để tải các thư viện cần thiết:
 ```bash
 pip install -r requirements.txt
@@ -10,7 +10,7 @@ hubspot_token="access-token-your-hubspot"
 ```
 **Lưu ý:** Nếu đã chuẩn bị thư viện và biến môi trường nhưng chạy gặp lỗi liên quan ffmpeg (ffmpeg dùng để xử lý các tệp âm thanh và video) thì tải chocolatey (https://chocolatey.org/install) về máy và chạy câu lệnh `choco install ffmpeg` trong CMD hoặc Terminal. 
 
-## Thiết lập theo dõi các deal trong một stage của một pipeline cụ thể
+## 🛠️ Thiết lập theo dõi các deal trong một stage của một pipeline cụ thể
 Trong file **hubspot/polling.py**, có thiết lập chọn theo dõi các deal trong stage "Chốt giao dịch" của pipeline "Chốt deal" bằng cách dùng ID của stage và pipeline:
 ```python
 # Stage ID và Pipeline ID
@@ -60,12 +60,12 @@ def list_pipelines():
 if __name__ == "__main__":
     list_pipelines()
 ```
-## Triển khai sử dụng
+## 🚀 Triển khai sử dụng
 Nếu chưa tích hợp tổng đài trả về URL ghi âm cuộc gọi thì có thể chạy file **switchboard_simulator.py** là file giả lập tổng đài gửi link URL ghi âm cuộc gọi về cho deal của một stage trong pipeline cụ thể trên Hubspot (bạn có thể chỉnh sửa ID của stage và pipeline cần theo dõi trong file này).  
 
 Cuối cùng, chạy file **hubspot/polling.py** để tiến hành theo dõi và ghi log (nếu có) cho các deal trong stage của pipeline mà bạn đã thiết lập
 
-## Quy trình dự án
+## 🔄 Quy trình dự án
 ### 1. Thu thập thông tin giao dịch và cuộc gọi
 Sử dụng API của HubSpot để lấy danh sách các giao dịch (deals) nằm trong một pipeline và stage cụ thể (ở đây là các deal nằm trong stage "Chốt giao dịch" của pipeline "Chốt deal"). Với mỗi deal như vậy, truy xuất danh sách các cuộc gọi liên quan (call engagements), bao gồm thông tin như: ID của cuộc gọi và URL file ghi âm của cuộc gọi.  
 Tuy nhiên với các cuộc gọi đã có mô tả (đã có log) thì không cần lấy các thông tin của cuộc gọi này (chỉ lấy các cuộc gọi chưa có log để xử lý phân tích).
@@ -97,3 +97,5 @@ Lấy danh sách các giao dịch và cuộc gọi mới chưa được xử lý
 
 ### 7. Dọn dẹp dữ liệu tạm thời
 Sau khi hoàn tất xử lý, xóa các file tạm (như file âm thanh đã tải xuống) để giải phóng tài nguyên và tối ưu hóa hiệu suất.
+
+Polling sẽ kiểm tra theo dõi liên tục (cách 2 phút mỗi lần) các deal trên stage của pipeline đã được thiết lập trong code để theo dõi, quá trình sẽ kết thúc khi kết thúc chạy code.
