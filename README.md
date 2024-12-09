@@ -34,8 +34,6 @@ import requests
 import os
 from dotenv import load_dotenv
 
-# Load HubSpot token từ .env
-load_dotenv()
 ACCESS_TOKEN = "access-token-your-hubspot"
 
 BASE_URL = "https://api.hubapi.com"
