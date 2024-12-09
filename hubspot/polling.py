@@ -1,7 +1,7 @@
 import requests
 import time
 import os
-from gemini import ContentAnalyzer
+from content_analyzer import ContentAnalyzer
 from audio_processing import DownloadAndAnalyzeAudio
 from log_call_id import Call
 
