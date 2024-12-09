@@ -72,6 +72,31 @@ if __name__ == "__main__":
 ## 🚀 Triển khai sử dụng
 Nếu chưa tích hợp tổng đài trả về URL ghi âm cuộc gọi thì có thể chạy file **switchboard_simulator.py** là file giả lập tổng đài gửi link URL ghi âm cuộc gọi về cho deal của một stage trong pipeline cụ thể trên Hubspot (bạn có thể chỉnh sửa ID của stage và pipeline cần theo dõi trong file này).  
 
+**Lưu ý:** phần data gửi call trong file giả lập tổng đài, cần chỉnh sửa lại giá trị của ownerId để gán đúng người thực hiện cuộc gọi, cũng như các Id của contactIds và dealIds có trong Hubspot của bạn:
+```python
+data = {
+    "engagement": {
+        "active": True,
+        "type": "CALL",
+        "timestamp": int(time.time() * 1000),  # Thời gian cuộc gọi
+        "ownerId": 1521059153, # Anh Ngô Hoàng Lan
+    },
+    "associations": {
+        "contactIds": [66216837419],
+        "dealIds": [28697947754],
+    },
+    "metadata": {
+        # "body": "This is a note describing the details of the call.",
+        "toNumber": "+1234567890",
+        "fromNumber": "+0987654321",
+        "status": "COMPLETED",
+        "recordingUrl": recording_url,
+        "direction": "OUTBOUND",
+        "durationMilliseconds": download_get_duration(recording_url),   # Thời lượng tính bằng mili giây
+    },
+}
+```
+
 Cuối cùng, chạy file **hubspot/polling.py** để tiến hành theo dõi và ghi log (nếu có) cho các deal trong stage của pipeline mà bạn đã thiết lập
 
 ## 🔄 Quy trình dự án
